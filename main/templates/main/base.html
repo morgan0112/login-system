@@ -17,6 +17,10 @@
   color: #0d6efd !important;
 }
 
+.sidebar-link:hover {
+    color: #000000 !important;
+}
+
 
   .loader-wrapper {
   width: 100%;
@@ -82,9 +86,9 @@
         </li>
 
         {% if user.is_authenticated %}
-        {% url 'account' as url_account %}
-        {% url 'change_password' as url_change_password %}
-        {% url 'password_success' as url_password_success %}
+        {% url 'accounts:account' as url_account %}
+        {% url 'accounts:change_password' as url_change_password %}
+        {% url 'accounts:password_success' as url_password_success %}
         <li class="{% if request.path == url_account or request.path == url_change_password or request.path == url_password_success or request.path == url_points %}active{% endif %}">
             <a href="{% url 'accounts:account' %}" class="nav-link text-dark" id="account">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
@@ -110,13 +114,13 @@
 
       <div class="col-md-3 text-end">
         {% if not user.is_authenticated %}
-        <a href="{% url 'accounts:login' %}"><button type="button" class="btn btn-outline-primary">Login</button></a>
+        <a href="{% url 'accounts:login' %}"><button type="button" class="btn btn-outline-primary">Sign in</button></a>
         <a href="{% url 'accounts:register' %}"><button type="button" class="btn btn-primary">Register</button></a>
         {% endif %}
         {% if user.is_authenticated %}
         <form action="{% url 'accounts:logout' %}" method="post">
             {% csrf_token %}
-            <button class="btn btn-outline-dark" type="submit">Logout</button>
+            <button class="btn btn-outline-dark" type="submit">Sign out</button>
         </form>
         {% endif %}
       </div>
