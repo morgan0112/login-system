@@ -11,7 +11,7 @@ class LoginForm(AuthenticationForm):
         model = User
         fields = ['username', 'password']
 
-    def __int__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super(LoginForm, self).__init__(*args, **kwargs)
         # Adding Bootstrap classes and placeholders to form fields
         self.fields['username'].widget.attrs['class'] = default_bootstrap_classes
