@@ -1,6 +1,6 @@
 # Login System
 
-This is a start-up login system that includes all features to handle user configurations.
+This is a start-up Django login system that includes all features to handle user configurations.
 This is to get started on a project without needing to focus too much on setting up account components.
 
 This app extracts basic user information, but it is
